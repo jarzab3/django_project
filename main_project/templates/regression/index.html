@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
+{% load staticfiles %}
+
+
 {% block content %}
-    <!--<h3>Items in stock</h3>
-    <ul>
-    	{% for item in items %}
-    		<li>
-    			<a href="{% url 'item_detail' item.id %}">
-    				{{ item.title|capfirst }}
-    			</a>
-    		</li>
-    	{% endfor %}
-    </ul> -->
-    <div class="hello">
-        jlkamsd
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}" >
+
+
+    <div class='basic' >
+        This is main page!!!
         
     </div>
 {% endblock %}

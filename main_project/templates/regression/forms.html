@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
-{% load crispy_forms_tags %}
-
 {% load staticfiles %}
+
+{% load crispy_forms_tags %}
 
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/charts.css' %}" >
+ <link rel="stylesheet" href="{% static 'css/forms.css' %}" >
+
 
     <!--<h3>Items in stock</h3>
     <ul>
@@ -18,8 +19,18 @@
     		</li>
     	{% endfor %}
     </ul> -->
-    <div class="basic">
-    This is testing for charts page.
-        
+    <div class="main-wrapper">
+
+    <h1 class='basic'>
+
+    This is forms testing 
+    </h1>
+    
+    <div class="forms-container">
+    {% crispy form %}
     </div>
+
+    </div>
+        
+    
 {% endblock %}

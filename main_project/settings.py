@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 
 # Application definition
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'regression',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,6 +71,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'main_project.wsgi.application'
 
@@ -103,3 +107,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project', 'static'),)
+
+

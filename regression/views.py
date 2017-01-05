@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 
+
 from regression.models import Item
 
 
@@ -18,6 +19,18 @@ def charts(request):
 	})
 
 
+def forms(request):
+	items = Item.objects.exclude(amount=0)
+	return render(request, 'regression/forms.html', {
+		'items': items,
+	})
+
+
+def tables(request):
+	return render(request, 'regression/tables.html', {
+	})
+
+
 
 def item_detail(request, id):
 	try:
@@ -27,3 +40,5 @@ def item_detail(request, id):
 	return render(request, 'regression/item_detail.html', {
 		'item': item,
 	})
+
+

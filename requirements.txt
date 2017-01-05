@@ -1,0 +1,10 @@
+backports-abc==0.5
+certifi==2016.9.26
+databench==0.5.0
+django-crispy-forms==1.6.1
+future==0.16.0
+PyYAML==3.12
+pyzmq==16.0.2
+singledispatch==3.4.0.3
+six==1.10.0
+tornado==4.4.2

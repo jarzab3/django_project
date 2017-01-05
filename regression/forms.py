@@ -33,12 +33,12 @@ class CartForm(forms.Form):
     )
 
 
-class CreditCardForm(forms.Form):
-    fullname = forms.CharField(label="Full Name", required=True)
-    card_number = forms.CharField(label="Card", required=True, max_length=16)
-    expire = forms.DateField(label="Expire Date", input_formats=['%m/%y'])
-    ccv = forms.IntegerField(label="ccv")
-    notes = forms.CharField(label="Order Notes", widget=forms.Textarea())
+class AddNewUserStory(forms.Form):
+    subject = forms.CharField(label="Subject", required=True)
+    case_title = forms.CharField(label="Case Title", required=True, max_length=56)
+    test_preconditions = forms.DateField(label="Test Preconditions") #input_formats=['%m/%y'])
+    repro_steps = forms.IntegerField(label="Repro Steps", required=True)
+    notes = forms.CharField(label="Extra Notes", widget=forms.Textarea())
 
     helper = FormHelper()
     helper.form_method = 'POST'
@@ -46,13 +46,13 @@ class CreditCardForm(forms.Form):
     helper.label_class = 'col-sm-2'
     helper.field_class = 'col-sm-4'
     helper.layout = Layout(
-        Field('fullname', css_class='input-sm'),
-        Field('card_number', css_class='input-sm'),
-        Field('expire', css_class='input-sm'),
-        Field('ccv', css_class='input-sm'),
+        Field('subject', css_class='input-sm'),
+        Field('case_title', css_class='input-sm'),
+        Field('test_preconditions', css_class='input-sm'),
+        Field('repro_steps', css_class='input-sm'),
         Field('notes', rows=3),
-        FormActions(Submit('purchase', 'purchase', css_class='btn-primary'))
+        FormActions(Submit('Submit', 'purchase', css_class='btn-primary'))
     )
 
 def forms(request):
-    return render(request, "regression/forms.html", {'form': CreditCardForm()})
+    return render(request, "regression/forms.html", {'form': AddNewUserStory()})

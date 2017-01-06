@@ -3,6 +3,7 @@ from django.http import Http404
 from django import forms
 
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import CreateView
 
 from regression.models import Item
 
@@ -34,17 +35,23 @@ def forms(request):
 	})
 
 
-from regression.models import Cost
+#from regression.models import Cost
 from regression.forms import CostForm
 
 
-def tables(request):
-	logger.info("here")
-	form = CostForm()
-	
-	cost_var = request.POST.get('cost')
-	logger.info(cost_var)
+def tables(request):	
+	#form = CostForm()
+	form = CostForm(request.POST)
 
+	#logger.info(request.method)
+	if form.is_valid():
+		con = form.cleaned_data['fields']
+		logger.info(con)
+		logger.info("here")
+	
+
+
+	
 
 	return render(request, 'regression/tables.html', {
 		'form': form
@@ -103,3 +110,23 @@ def AddNewUserStory_view(request):
     })
 
 #eturn render(request, "regression/forms.html", {'form': AddNewUserStory()})
+
+
+from regression.forms import LoginForm
+
+
+def login(request):
+   username = "not logged in"
+   
+   if request.method == "POST":
+      #Get the posted form
+      MyLoginForm = LoginForm(data=request.POST or None)
+      logger.info(MyLoginForm)
+      
+      if MyLoginForm.is_valid():
+         username = MyLoginForm.cleaned_data['username']
+         logger.info("----------------------------------------")
+   else:
+      MyLoginForm = LoginForm()
+		
+   return render(request, 'regression/loggedin.html', {"username" : username})

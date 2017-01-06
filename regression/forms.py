@@ -103,7 +103,11 @@ def post_form_upload(request):
 
 '''
 
-
-
 class CostForm(forms.Form):
-    cost = forms.FloatField()
+    fields = forms.CharField(max_length=256)
+
+
+
+class LoginForm(forms.Form):
+   user = forms.CharField(max_length = 100)
+   password = forms.CharField(widget = forms.PasswordInput())

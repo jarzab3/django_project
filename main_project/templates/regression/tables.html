@@ -11,15 +11,26 @@
     This is testing for tables page.
 
 
-   <div style="text-align: center; font-size: 12px; margin-top: 2cm;"> 
-   here are fields
-<form action="{% url 'subject_to_change' %}" method="post">{% csrf_token %}
-	<p><label for="cost">Cost:</label><input type="text" name="cost" value="2"/></p>
+ <div style="text-align: center; font-size: 12px; margin-top: 2cm;"> 
+
+<form action="{% url 'subject_to_change' %}" method="POST">{% csrf_token %}
+{{ form.as_p }}
+	<!-- <p><label for="cost">Cost:</label><input type="text" name="cost" value=""/></p> -->
 	<input type="submit" name="Submit"/>
 
-	
-</form>
 
+
+<!--     <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+ -->
+
+<!-- <form action='/form_upload.html' method='POST'>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value='Submit' />
+</form> -->
+	
    </div>
         
     </div>

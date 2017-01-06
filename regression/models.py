@@ -14,3 +14,10 @@ class user_story(models.Model):
 
 class Cost(models.Model):
 	cost = models.FloatField()
+
+
+class Foo(models.Model):
+    """A magical creature from Foo dynasty"""
+    mighty_name = models.CharField(max_length=255)
+    kingdoms_count = models.PositiveIntegerField(default=0)
+    email = models.EmailField()  # What? Magical creatures also have emails.

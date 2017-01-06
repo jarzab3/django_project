@@ -13,8 +13,8 @@
 .forms-container{
 	margin-top: 3.5cm;
 	font-size: 16px;
-	text-align: center;
-	text-transform: center;
+	text-align: center !important;
+	text-transform: center !important;
 	color: #0f0e0f;
     padding: 10px;
 }

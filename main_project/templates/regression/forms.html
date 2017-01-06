@@ -27,7 +27,22 @@
     </h1>
     
     <div class="forms-container">
-    {% crispy form %}
+    <!-- {% crispy form %} -->
+    <div class="bs-example">
+    <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> Your message has been sent successfully.
+    </div>
+</div>
+
+
+
+<form action="{% url 'subject_to_change' %}" method='post'>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value='Submit' />
+</form>
+
+
     </div>
 
     </div>

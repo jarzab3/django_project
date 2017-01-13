@@ -8,6 +8,8 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from regression.models import user_story
 from regression.forms import PostForm
+from django.contrib import messages 
+from dajngo
 import ipdb
 import logging
 
@@ -47,26 +49,35 @@ def display_us_subject(request):
     	'data': data
     	})
 
-def post_create(request):
-	form = PostForm(request.POST or None)
-	var = False
-	if form.is_valid():
-		try:
-			instance = form.save(commit=False)
-			instance.save()
-			print form.cleaned_data.get("subject")
-			print form.cleaned_data.get("case_title")
-			#print form.cleaned_data.get("content")
-			#instance.save()
-			var = True
-		except Exception as error:
-			logger.DEBUG("Post form error. %s" %(ipdb.set_trace()))
+def post_create(request, user_story_id):
+	"""Create a new user story
+
+	Handle the form GET and POST
+	"""
+
+	if request.method == 'POST':
+		# Handle the data sent by the form
+		form = PostForm(request.POST)
+
+	elif request.method == 'GET':
+		# handle the request of a form
+		# here you can manage and edit if you have the instance value.
+		form = Postform()
+
+		if form.is_valid():
+		
+			try:
+				instance = form.save(commit=False)
+				instance.save()
+		
+			except Exception as error:
+				logger.DEBUG("Post form error %s", error)
 
 	context = {
 		"form": form,
 	}
 
-	return render(request, "regression/post_form.html", context, var )
+	return render(request, "regression/post_form.html", context)
 
 
 def charts(request):

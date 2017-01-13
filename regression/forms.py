@@ -7,13 +7,13 @@ from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
 from crispy_forms.bootstrap import (
     PrependedText, PrependedAppendedText, FormActions)
 
-from regression.models import user_story
+from regression.models import UserStory
 
 
 
 class PostForm(forms.ModelForm):
     class Meta:
-        model = user_story
+        model = UserStory
         fields =[
             "subject",
             "case_title",

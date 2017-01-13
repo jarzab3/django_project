@@ -1,89 +1,81 @@
-from django.shortcuts import render
-from django.http import Http404
-from django.http import HttpResponse
-from django import forms
-from django.views import generic
-from django.views import View
-from django.http import HttpResponseRedirect
-from django.views.generic.edit import CreateView
-from regression.models import user_story
-from regression.forms import PostForm
-from django.contrib import messages 
-from dajngo
-import ipdb
 import logging
 
-logger = logging.getLogger('loggly_logs')
+from django.http import HttpResponse
+from django.shortcuts import render, render_to_response
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+
+from regression.forms import PostForm
+from regression.models import UserStory
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
-	return render(request, 'regression/index.html', {
-	})
-
-
+    return render(request, 'regression/index.html', {
+    })
 
 
 def submitted(request):
-	return render(request, 'regression/submitted.html', {
-	})
+    return render(request, 'regression/submitted.html', {
+    })
 
 
 def forms(request):
-	return render(request, 'regression/forms.html', {   
-	})
+    return render(request, 'regression/forms.html', {
+    })
+
 
 def tables(request):
-	return render(request, 'regression/tables.html', {   
-	})
-
+    return render(request, 'regression/tables.html', {
+    })
 
 
 def display_us_subject(request):
-	try:
-	    all_user_stories = user_story.objects.all()
-	    data = all_user_stories
-	except Exception as error:
-		logger.info("Display user story error. %s" %(ipdb.set_trace()))
+    try:
+        all_user_stories = UserStory.objects.all()
+        data = all_user_stories
+    except Exception as error:
+        logger.info("Display user story error. %s", error)
 
-	return render(request, 'regression/display_us.html', {
-    	'data': data
-    	})
+    return render(request, 'regression/display_us.html', {
+        'data': data
+    })
 
-def post_create(request, user_story_id):
-	"""Create a new user story
 
-	Handle the form GET and POST
-	"""
+@csrf_exempt
+def post_create(request):
+    """Create a new user story
 
-	if request.method == 'POST':
-		# Handle the data sent by the form
-		form = PostForm(request.POST)
+    Handle the form GET and POST
+    """
+    if request.method == 'GET':
+        # handle the request of a form
+        # here you can manage and edit if you have the instance value.
+        form = PostForm()
 
-	elif request.method == 'GET':
-		# handle the request of a form
-		# here you can manage and edit if you have the instance value.
-		form = Postform()
+    if request.method == 'POST':
+        # Handle the data sent by the form
+        form = PostForm(request.POST)
 
-		if form.is_valid():
-		
-			try:
-				instance = form.save(commit=False)
-				instance.save()
-		
-			except Exception as error:
-				logger.DEBUG("Post form error %s", error)
+        if form.is_valid():
+            try:
+                instance = form.save(commit=False)
+                instance.save()
+                messages.success('User story %s correctly saved' % instance.subject)
 
-	context = {
-		"form": form,
-	}
+            except Exception as error:
+                error_message = 'Something happened during the save of the user story: %s' % error
+                messages.error(request, error_message)
 
-	return render(request, "regression/post_form.html", context)
+    context = {"form": form,  }
+    return render_to_response('regression/post_form.html', context)
 
 
 def charts(request):
-	return render(request, 'regression/charts.html', {
-	})
+    return render(request, 'regression/charts.html', {
+    })
 
 
 def user_story_detail_view(request, pk):
-	return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(pk))
+    return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(pk))

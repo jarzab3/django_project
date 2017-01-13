@@ -22,16 +22,11 @@ class PostForm(forms.ModelForm):
             "extra_notes"
             ]
 
-
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
-        #self.helper.form_show_labels = False
 
-        # self.helper.layout = Layout(
-        #     Field('subject', css_class="col-md-4")
-        #     )
         self.helper.layout = Layout(
             Div(
                 Field('subject'), css_class="col-md-6 col-md-offset-3"
@@ -55,55 +50,3 @@ class PostForm(forms.ModelForm):
 
 
             )
-
-        # self.helper.layout.append(
-        #     HTML('<button type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">')  
-        #     )
-   # <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-
-
-'''
-
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = user_story
-        fields = [
-            "subject",
-            "case_title",
-            "repro_steps",
-            "test_preconditions",
-            "extra_notes"
-        ]
-
-
-    def __init__(self, *args, **kwargs):
-       super(PostForm, self).__init__(*args, **kwargs)
-       self.helper = FormHelper(self)
-       self.helper.form_class = 'form-horizontal'
-       self.helper.layout.append( 
-        Fieldset(
-        'Tell us your favorite stuff {{ username }}',
-        'like_website',
-           FormActions(
-               Submit('save_changes', 'Save', css_class='btn-primary'),
-               #Submit('cancel', 'Cancel'),
-           )
-           )
-       )
-
-    # def __init__(self, *args, **kwargs):
-    #     self.helper = FormHelper()
-    #     self.helper.layout = Layout(
-    #         Fieldset(
-    #             'first arg is the legend of the fieldset',
-    #             'like_website',
-    #             'favorite_number',
-    #             'favorite_color',
-    #             'favorite_food',
-    #             'notes'
-    #         ),
-    #         ButtonHolder(
-    #             Submit('submit', 'Submit', css_class='button white')
-    #         )
-    #     )
-    '''

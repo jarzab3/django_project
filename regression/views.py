@@ -11,7 +11,7 @@ from regression.models import UserStory
 logger = logging.getLogger(__name__)
 
 
-def index(request):
+def main(request):
     return render(request, 'regression/index.html', {
     })
 
@@ -30,6 +30,11 @@ def tables(request):
     return render(request, 'regression/tables.html', {
     })
 
+def charts(request):
+    return render(request, 'regression/charts.html', {
+    })
+
+
 
 def display_us_subject(request):
     try:
@@ -44,7 +49,7 @@ def display_us_subject(request):
 
 
 @csrf_exempt
-def post_create(request):
+def user_story_post_create(request):
     """Create a new user story
 
     Handle the form GET and POST
@@ -68,13 +73,12 @@ def post_create(request):
                 error_message = 'Something happened during the save of the user story: %s' % error
                 messages.error(request, error_message)
 
-    context = {"form": form,  }
-    return render_to_response('regression/post_form.html', context)
+    return render(request, 'regression/us_post_form.html', {
+    	"form": form, 
+    	})
 
 
-def charts(request):
-    return render(request, 'regression/charts.html', {
-    })
+
 
 
 def user_story_detail_view(request, pk):

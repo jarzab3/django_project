@@ -1,31 +1,32 @@
 from django.db import models
 
-class Item(models.Model):
-	title = models.CharField(max_length=200)
-	description = models.TextField()
-	amount = models.IntegerField()
 
 class user_story(models.Model):
 	subject = models.CharField(max_length=200)
-	case_title = models.TextField()
-	test_preconditions = models.TextField()
+	case_title = models.CharField(max_length=200)
+	test_preconditions = models.CharField(max_length=200)
+	repro_steps = models.CharField(max_length=200)
+	extra_notes = models.CharField(max_length=200)
 
 
 
-class Cost(models.Model):
-	cost = models.FloatField()
+class email_category(models.Model):
+	key = models.CharField(max_length=200)
 
 
+'''
 class Post(models.Model):
 	title = models.CharField(max_length=100)
 	content = models.TextField()
 
+	def __unicode__(self):
+	 	return self.title
 
-	# def __unicode__(self):
-	# 	return self.title
+	def __str__(self):
+		return self.title
 
-	# def __str__(self):
-	# 	return self.title
+	def get_absolute_url(self):
+	 	return reverse("posts:detail", kwargs={"id": seld.id})
 
-	# def get_absolute_url(self):
-	# 	return reverse("posts:detail", kwargs={"id": seld.id})
+
+'''

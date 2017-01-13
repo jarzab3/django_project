@@ -1,7 +1,9 @@
 
 .main-wrapper{
-	height: 800px;
 
+	 display:block;
+	 overflow:auto;
+	 background-color: #f2ede1;
 }
 
 .basic {

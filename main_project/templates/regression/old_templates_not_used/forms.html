@@ -23,27 +23,31 @@
 
     <h1 class='basic'>
 
-    This is forms testing 
+    This is displaying avaiable user story subjects!
     </h1>
-    
-    <div class="forms-container">
-    <!-- {% crispy form %} -->
-    <div class="bs-example">
-    <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Success!</strong> Your message has been sent successfully.
-    </div>
+<!--     {% for d in data %}
+    <div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4 class="list-group-item-heading">{{ d.subject }}</h4>
+    <p class="list-group-item-text">...</p>
+  </a>
 </div>
 
+<div class="well well-sm">...</div>
+  
+
+{% endfor %}
+ -->
+
+{% for d in data %}
+<div class="col-md-1"> 
+
+<div class="well well-sm">{{ d.subject }}</div>
+
+</div>
+{% endfor %}
 
 
-<form action="{% url 'subject_to_change' %}" method='post'>{% csrf_token %}
-{{ form.as_p }}
-<input type='submit' value='Submit' />
-</form>
-
-
-    </div>
 
     </div>
         

@@ -1,2 +1,4 @@
-Django==1.10.5
-django-crispy-forms==1.6.1
+Django==1.10.5 #This is core of this project
+django-crispy-forms==1.6.1 #Crispy forms are used for user input on the website 
+ipdb==0.10.1 #This package is used for debugging
+sphinx==1.5.1 #This package is used for documentation of this project

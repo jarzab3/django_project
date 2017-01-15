@@ -11,7 +11,7 @@ from regression.models import UserStory
 
 
 
-class PostForm(forms.ModelForm):
+class UserStoryForm(forms.ModelForm):
     class Meta:
         model = UserStory
         fields =[

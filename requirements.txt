@@ -1,4 +1,9 @@
 Django==1.10.5 #This is core of this project
 django-crispy-forms==1.6.1 #Crispy forms are used for user input on the website 
-ipdb==0.10.1 #This package is used for debugging
+django-pdb==0.5.1 #This package is used for debugging
 sphinx==1.5.1 #This package is used for documentation of this project
+django-ajax-search==1.5.1 #This package is for ajax search option
+
+djangorestframework==3.5.3 
+markdown==2.6.7 # Markdown support for the browsable API.
+django-filter==1.0.1 # Filtering support

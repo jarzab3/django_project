@@ -39,8 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'crispy_forms',
     'regression',
+    'ajax_search',
+    'django_pdb',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -110,6 +113,11 @@ STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project', 'static'),)
 
 #log_path= ( os.path.join(BASE_DIR, 'main_project', 'logs', 'django_debug.log'),)
 #formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s\r')
+
+#Ajax Settings
+AJAX_SEARCH_LIMIT = 8
+AJAX_SEARCH_HELPER = 'regression.views.search_helper'
+SEARCH_RESULT_TEMPLATE = 'search_results.html'
 
 
 LOGGING = {

@@ -1,11 +1,15 @@
 import logging
 
 from django.http import HttpResponse
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, get_object_or_404
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
-from regression.forms import PostForm
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+from regression.serializers import UserStorySerializer
+from regression.forms import UserStoryForm
 from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
@@ -78,8 +82,13 @@ def user_story_post_create(request):
     	})
 
 
+#List all user stories 
 
 
+@api_view(['GET'])
+def user_story_detail_view(request):
+    if request.method == 'GET':
+        user_stories = UserStory.objects.all()
+        serializer = UserStorySerializer(user_stories, many=True)
+        return Response(serializer.data)
 
-def user_story_detail_view(request, pk):
-    return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(pk))

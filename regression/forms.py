@@ -23,7 +23,7 @@ class UserStoryForm(forms.ModelForm):
             ]
 
     def __init__(self, *args, **kwargs):
-        super(PostForm, self).__init__(*args, **kwargs)
+        super(UserStoryForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
 

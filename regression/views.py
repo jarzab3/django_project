@@ -61,11 +61,11 @@ def user_story_post_create(request):
     if request.method == 'GET':
         # handle the request of a form
         # here you can manage and edit if you have the instance value.
-        form = PostForm()
+        form = UserStoryForm()
 
     if request.method == 'POST':
         # Handle the data sent by the form
-        form = PostForm(request.POST)
+        form = UserStoryForm(request.POST)
 
         if form.is_valid():
             try:
@@ -88,7 +88,7 @@ def user_story_post_create(request):
 @api_view(['GET'])
 def user_story_detail_view(request):
     if request.method == 'GET':
-        user_stories = UserStory.objects.all()
+        user_stories = [UserStory.objects.all()[0]]
         serializer = UserStorySerializer(user_stories, many=True)
         return Response(serializer.data)
 

@@ -119,6 +119,11 @@ AJAX_SEARCH_LIMIT = 8
 AJAX_SEARCH_HELPER = 'regression.views.search_helper'
 SEARCH_RESULT_TEMPLATE = 'search_results.html'
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'adam@expensecheck.com.au'
+EMAIL_HOST_PASSWORD = 'Samsung2010'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 LOGGING = {
    'version': 1,

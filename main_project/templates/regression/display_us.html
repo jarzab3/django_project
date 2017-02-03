@@ -7,20 +7,13 @@
 
 {% block content %}
  <link rel="stylesheet" href="{% static 'css/forms.css' %}" >
-
+ <link rel="stylesheet" href="{% static 'js/modal_view_load.js' %}" >
 
     <div class="main-wrapper">
 
     <h1 class='basic'>
 
-    Display avaiable user stories!
-    </h1>
-
-{% for item in data %}
-
-<div class="col-md-4" > 
-
-    <div class="container">
+        <div class="container">
   <!-- Trigger the modal with a button -->
   
   <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
@@ -50,12 +43,16 @@
   
 </div>
 
+    Display avaiable user stories!
+    </h1>
 
+{% for item in data %}
 
+<div class="col-md-4" >
 
 <div>
 
-<button href="" style="width: 350px; padding: 25px; margin: 25px;" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#myModal">{{ item.subject }} </a>
+<button onclick="location.href='54';" style="width: 350px; padding: 25px; margin: 25px;" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#myModal">{{ item.subject }}</a>
 
 </div>
 
@@ -63,5 +60,5 @@
 {% endfor %}
 
 </div>
-        
+
 {% endblock %}

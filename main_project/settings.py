@@ -41,6 +41,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'crispy_forms',
     'regression',
+    'djangobower',
+)
+
+BOWER_INSTALLED_APPS = (
+    'jquery',
 )
 
 MIDDLEWARE_CLASSES = (

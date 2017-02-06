@@ -35,7 +35,6 @@ def charts(request):
     })
 
 
-
 def display_us_subject(request):
     try:
         all_user_stories = UserStory.objects.all()
@@ -79,7 +78,15 @@ def user_story_post_create(request):
 
 
 
+def user_story_detail_view(request, id):
+    return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
 
 
-def user_story_detail_view(request, pk):
-    return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(pk))
+def modal_detail_view(request, id):
+	try:
+		user_story = UserStory.objects.get(id=id)
+	except UserStory.DoesNotExist:
+		raise Http404('This user_story does not exist')
+	return render(request, 'regression/modal_detail_view.html', {
+	'user_story': user_story,
+	})

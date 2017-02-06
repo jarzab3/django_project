@@ -11,7 +11,8 @@ urlpatterns = [
     url(r'^main$', views.main, name='main'),
     url(r'^create$', views.user_story_post_create, name='us_post_create'),
     url(r'^display_us$', views.display_us_subject, name='display_us_subject'),
-    
+    url(r'^modal_detail_view/(?P<id>\d+)', views.modal_detail_view, name='modal_detail_view'),
+
     #Below unused
     
     url(r'^display_us/(?P<pk>\d+)/', views.user_story_detail_view, name='display_us_details'),

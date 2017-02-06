@@ -41,6 +41,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'crispy_forms',
     'regression',
+<<<<<<< Updated upstream
+=======
+    'ajax_search',
+    'django_pdb',
+>>>>>>> Stashed changes
     'djangobower',
 )
 

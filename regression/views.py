@@ -76,8 +76,11 @@ def user_story_post_create(request):
     	"form": form, 
     	})
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 def user_story_detail_view(request, id):
     return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
 
@@ -90,3 +93,8 @@ def modal_detail_view(request, id):
 	return render(request, 'regression/modal_detail_view.html', {
 	'user_story': user_story,
 	})
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes

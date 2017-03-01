@@ -11,7 +11,7 @@ from regression.models import UserStory
 
 
 
-class PostForm(forms.ModelForm):
+class UserStoryForm(forms.ModelForm):
     class Meta:
         model = UserStory
         fields =[
@@ -23,9 +23,10 @@ class PostForm(forms.ModelForm):
             ]
 
     def __init__(self, *args, **kwargs):
-        super(PostForm, self).__init__(*args, **kwargs)
+        super(UserStoryForm, self).__init__(*args, **kwargs)
 
-        self.helper = FormHelper(self)
+        self.helper = FormHelper()
+
 
         self.helper.layout = Layout(
             Div(
@@ -47,6 +48,4 @@ class PostForm(forms.ModelForm):
             Div(
                 Submit('submit', "Save"), css_class="col-md-6 col-md-offset-3"
                 )
-
-
             )

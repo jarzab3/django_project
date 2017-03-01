@@ -1,11 +1,16 @@
 import logging
 
 from django.http import HttpResponse
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, reverse
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
-from regression.forms import PostForm
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+from regression.serializers import UserStorySerializer
+from regression.forms import UserStoryForm as USForm
+
 from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
@@ -53,22 +58,27 @@ def user_story_post_create(request):
 
     Handle the form GET and POST
     """
+    form = USForm()
+
     if request.method == 'GET':
         # handle the request of a form
         # here you can manage and edit if you have the instance value.
-        form = PostForm()
+        form = USForm()
 
     if request.method == 'POST':
         # Handle the data sent by the form
-        form = PostForm(request.POST)
+        form = USForm(request.POST)
 
         if form.is_valid():
             try:
                 instance = form.save(commit=False)
                 instance.save()
-                messages.success('User story %s correctly saved' % instance.subject)
+                form = USForm()
+
+                messages.success(request, 'User story %s correctly saved' % instance.subject)
 
             except Exception as error:
+                pass
                 error_message = 'Something happened during the save of the user story: %s' % error
                 messages.error(request, error_message)
 
@@ -76,11 +86,8 @@ def user_story_post_create(request):
     	"form": form, 
     	})
 
-<<<<<<< Updated upstream
 
 
-=======
->>>>>>> Stashed changes
 def user_story_detail_view(request, id):
     return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
 
@@ -93,8 +100,3 @@ def modal_detail_view(request, id):
 	return render(request, 'regression/modal_detail_view.html', {
 	'user_story': user_story,
 	})
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes

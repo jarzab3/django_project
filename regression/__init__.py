@@ -1,1 +1,1 @@
-default_app_config = 'regression.apps.RegressionConfig'
+default_app_config = 'regression.apps_to_remove.RegressionConfig'

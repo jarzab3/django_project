@@ -41,11 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'crispy_forms',
     'regression',
-<<<<<<< Updated upstream
-=======
     'ajax_search',
     'django_pdb',
->>>>>>> Stashed changes
     'djangobower',
 )
 
@@ -62,6 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django_pdb.middleware.PdbMiddleware'
 )
 
 ROOT_URLCONF = 'main_project.urls'
@@ -114,9 +112,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static_old/'
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project', 'static'),)
+STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project/', 'static/'),)
+#STATIC_ROOT = ( os.path.join(BASE_DIR, 'main_project', 'static'),)
+
+#STATIC_ROOT= os.path.join(BASE_DIR,'main_project/', 'static/')
+
 
 #log_path= ( os.path.join(BASE_DIR, 'main_project', 'logs', 'django_debug.log'),)
 #formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s\r')

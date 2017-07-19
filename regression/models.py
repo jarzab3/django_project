@@ -16,16 +16,8 @@ class Cost(models.Model):
 	cost = models.FloatField()
 
 
-class Post(models.Model):
-	title = models.CharField(max_length=100)
-	content = models.TextField()
-
-
-	# def __unicode__(self):
-	# 	return self.title
-
-	# def __str__(self):
-	# 	return self.title
-
-	# def get_absolute_url(self):
-	# 	return reverse("posts:detail", kwargs={"id": seld.id})
+class Foo(models.Model):
+    """A magical creature from Foo dynasty"""
+    mighty_name = models.CharField(max_length=255)
+    kingdoms_count = models.PositiveIntegerField(default=0)
+    email = models.EmailField()  # What? Magical creatures also have emails.

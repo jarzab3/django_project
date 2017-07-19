@@ -13,12 +13,8 @@
 
  <div style="text-align: center; font-size: 12px; margin-top: 2cm;"> 
 
-<form  method="POST">{% csrf_token %}
-<!-- action="{% url 'subject_to_change' %}" -->
+<form action="{% url 'subject_to_change' %}" method="POST">{% csrf_token %}
 {{ form.as_p }}
-
-{{ form.errors }}
-{{ form.non_field_errors }}
 	<!-- <p><label for="cost">Cost:</label><input type="text" name="cost" value=""/></p> -->
 	<input type="submit" name="Submit"/>
 

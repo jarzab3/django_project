@@ -2,3 +2,6 @@ bootstrap/
 db.sqlite3
 *.pyc
 bower_components
+venvdir/
+.idea/
+

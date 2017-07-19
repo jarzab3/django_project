@@ -89,7 +89,7 @@ def AddNewUserStory_view(request):
             #subject = form.cleaned_data['subject_f', '']
             #case_title = form.cleaned_data['case_title_f', '']
             #post = m.Post.objects.create(content=content,
-            #                            created_at=created_at)
+             #                            created_at=created_at)
             logger.info('reguest.POST')
             subject = request.POST.get('subject_f', '')
             case_title = request.POST.get('case_title_f', '')
@@ -111,27 +111,26 @@ def AddNewUserStory_view(request):
 
 #eturn render(request, "regression/forms.html", {'form': AddNewUserStory()})
 
-from regression.forms import PostForm
-from regression.models import Post
 
+<<<<<<< HEAD
 
 def post_create(request):
 	form = PostForm(request.POST or None)
-	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.save()
-		print form.cleaned_data.get("title")
-		print form.cleaned_data.get("content")
-		instance.save()
-	# if request.method == "POST":
-	# 	print (request.POST.get("content"))
+# 	if form.is_valid():
+# 		instance = form.save(commit=False)
+# 		instance.save()
+# 		print form.cleaned_data.get("title")
+# 		print form.cleaned_data.get("content")
+# 		instance.save()
+# 	# if request.method == "POST":
+ 	# 	print (request.POST.get("content"))
 	# 	print (request.POST.get("title"))
 
-	context = {
-		"form": form,
+	# context = {
+	# 	"form": form,
 
-	}
-	return http.HttpResponseRedirect('')
+	# }
+	# return http.HttpResponseRedirect('')
 	#return render(request, "regression/post_form.html", context)
 
 
@@ -151,3 +150,23 @@ def post_list(request):
 		"object_list": queryset,
 		"title": "List"
 	}
+=======
+from regression.forms import LoginForm
+
+
+def login(request):
+   username = "not logged in"
+   
+   if request.method == "POST":
+      #Get the posted form
+      MyLoginForm = LoginForm(data=request.POST or None)
+      logger.info(MyLoginForm)
+      
+      if MyLoginForm.is_valid():
+         username = MyLoginForm.cleaned_data['username']
+         logger.info("----------------------------------------")
+   else:
+      MyLoginForm = LoginForm()
+		
+   return render(request, 'regression/loggedin.html', {"username" : username})
+>>>>>>> parent of 3b85e27... forms working, however need to be improved

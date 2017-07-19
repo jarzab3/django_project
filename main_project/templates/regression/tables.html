@@ -15,6 +15,7 @@
 
 <form action="{% url 'subject_to_change' %}" method="POST">{% csrf_token %}
 {{ form.as_p }}
+
 	<!-- <p><label for="cost">Cost:</label><input type="text" name="cost" value=""/></p> -->
 	<input type="submit" name="Submit"/>
 

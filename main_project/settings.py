@@ -33,14 +33,21 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # Application definition
 
 INSTALLED_APPS = (
+    'django_pdb', #For Django after 1.7 version, it needs to be added BEFORE other apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'regression',
     'crispy_forms',
+    'regression',
+    # 'ajax_search',
+    # 'djangobower',
+)
+
+BOWER_INSTALLED_APPS = (
+    'jquery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django_pdb.middleware.PdbMiddleware'
 )
 
 ROOT_URLCONF = 'main_project.urls'
@@ -106,7 +114,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project', 'static'),)
+STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project/', 'static/'),)
+#STATIC_ROOT = ( os.path.join(BASE_DIR, 'main_project', 'static'),)
+
+#STATIC_ROOT= os.path.join(BASE_DIR,'main_project/', 'static/')
+
 
 #log_path= ( os.path.join(BASE_DIR, 'main_project', 'logs', 'django_debug.log'),)
 #formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s\r')
@@ -140,6 +152,7 @@ LOGGING = {
        },
     }
 }
+
 
 
 '''

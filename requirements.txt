@@ -1,11 +1,4 @@
-backports-abc==0.5
-certifi==2016.9.26
-databench==0.5.0
-Django==1.8
-django-crispy-forms==1.6.1
-future==0.16.0
-PyYAML==3.12
-pyzmq==16.0.2
-singledispatch==3.4.0.3
-six==1.10.0
-tornado==4.4.2
+Django==1.10.5 #This is core of this project
+django-crispy-forms==1.6.1 #Crispy forms are used for user input on the website 
+ipdb==0.10.1 #This package is used for debugging
+sphinx==1.5.1 #This package is used for documentation of this project

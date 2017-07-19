@@ -1,91 +1,78 @@
-from django.shortcuts import render
-from django.http import Http404
-from django import forms
-
-from django.http import HttpResponseRedirect
-from django.views.generic.edit import CreateView
-
-from regression.models import Item
-
 import logging
-logger = logging.getLogger('loggly_logs')
 
+from django.http import HttpResponse
+from django.shortcuts import render, render_to_response, reverse
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
-def index(request):
-	items = Item.objects.exclude(amount=0)
-	return render(request, 'regression/index.html', {
-		'items': items,
-	})
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
+# from regression.serializers import UserStorySerializer
+from regression.forms import UserStoryForm as USForm
 
-def charts(request):
-	items = Item.objects.exclude(amount=0)
-	return render(request, 'regression/charts.html', {
-		'items': items,
-	})
+from regression.models import UserStory
+
+logger = logging.getLogger(__name__)
+
+def main(request):
+    return render(request, 'regression/index.html', {
+    })
+
 
 def submitted(request):
-	return render(request, 'regression/submitted.html', {
-	})
+    return render(request, 'regression/submitted.html', {
+    })
 
 
 def forms(request):
-	return render(request, 'regression/forms.html', {
-        
-	})
+    return render(request, 'regression/forms.html', {
+    })
 
 
-#from regression.models import Cost
-from regression.forms import CostForm
+def tables(request):
+    return render(request, 'regression/tables.html', {
+    })
+
+def charts(request):
+    return render(request, 'regression/charts.html', {
+    })
 
 
-def tables(request):	
-	#form = CostForm()
-	form = CostForm(request.POST)
+def display_us_subject(request):
+    try:
+        all_user_stories = UserStory.objects.all()
+        data = all_user_stories
+    except Exception as error:
+        logger.info("Display user story error. %s", error)
 
-	#logger.info(request.method)
-	if form.is_valid():
-		con = form.cleaned_data['fields']
-		logger.info(con)
-		logger.info("here")
-	
-
-
-	
-
-	return render(request, 'regression/tables.html', {
-		'form': form
-	})
+    return render(request, 'regression/display_us.html', {
+        'data': data
+    })
 
 
+@csrf_exempt
+def user_story_post_create(request):
+    """Create a new user story
 
-def item_detail(request, id):
-	try:
-		item = Item.objects.get(id=id)
-	except Item.DoesNotExist:
-		raise Http404('This item does not exist')
-	return render(request, 'regression/item_detail.html', {
-		'item': item,
-	})
+    Handle the form GET and POST
+    """
+    form = USForm()
 
+    if request.method == 'GET':
+        # handle the request of a form
+        # here you can manage and edit if you have the instance value.
+        form = USForm()
 
-from regression.models import user_story
+    if request.method == 'POST':
+        # Handle the data sent by the form
+        form = USForm(request.POST)
 
-from regression.forms import AddNewUserStory
-
-
-
-
-
-def AddNewUserStory_view(request):
-    if request == 'POST':
-        #form = PostForm()
-
-        # A POST request: Handle Form Upload
-        form = AddNewUserStory(request.POST) # Bind data from request.POST into a PostForm
-        logger.info('before valid')
-        # If data is valid, proceeds to create a new post and redirect the user
         if form.is_valid():
+            try:
+                instance = form.save(commit=False)
+                instance.save()
+                form = USForm()
             #subject = form.cleaned_data['subject_f', '']
             #case_title = form.cleaned_data['case_title_f', '']
             #post = m.Post.objects.create(content=content,
@@ -99,74 +86,28 @@ def AddNewUserStory_view(request):
             #return HttpResponseRedirect(reverse('post_detail',
             #                                    kwargs={'post_id': post.id}))
 
-            return HttpResponseRedirect(reverse('regression:user_story'))
-    else:
-    	form = AddNewUserStory()
+
+                messages.success(request, 'User story %s correctly saved' % instance.subject)
+
+            except Exception as error:
+                pass
+                error_message = 'Something happened during the save of the user story: %s' % error
+                messages.error(request, error_message)
+
+    return render(request, 'regression/us_post_form.html', {
+    	"form": form, 
+    	})
 
 
 
-    return render(request, 'regression/forms.html', {
-        'form': form,
-    })
+def user_story_detail_view(request, id):
+    return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
 
-#eturn render(request, "regression/forms.html", {'form': AddNewUserStory()})
-
-
-<<<<<<< HEAD
-
-def post_create(request):
-	form = PostForm(request.POST or None)
-# 	if form.is_valid():
-# 		instance = form.save(commit=False)
-# 		instance.save()
-# 		print form.cleaned_data.get("title")
-# 		print form.cleaned_data.get("content")
-# 		instance.save()
-# 	# if request.method == "POST":
- 	# 	print (request.POST.get("content"))
-	# 	print (request.POST.get("title"))
-
-	# context = {
-	# 	"form": form,
-
-	# }
-	# return http.HttpResponseRedirect('')
-	#return render(request, "regression/post_form.html", context)
-
-
-def post_detial(request, id=None):
-
-	instance = get_object_or_404(Post, id=id)
-	context = {
-		"title": instance.title,
-		"instance": instancem
-	}
-	return render(request, "post_detail.html", context)
-
-
-def post_list(request):
-	queryset = Post.objects.all()
-	context = {
-		"object_list": queryset,
-		"title": "List"
-	}
-=======
-from regression.forms import LoginForm
-
-
-def login(request):
-   username = "not logged in"
-   
-   if request.method == "POST":
-      #Get the posted form
-      MyLoginForm = LoginForm(data=request.POST or None)
-      logger.info(MyLoginForm)
-      
-      if MyLoginForm.is_valid():
-         username = MyLoginForm.cleaned_data['username']
-         logger.info("----------------------------------------")
-   else:
-      MyLoginForm = LoginForm()
-		
-   return render(request, 'regression/loggedin.html', {"username" : username})
->>>>>>> parent of 3b85e27... forms working, however need to be improved
+def modal_detail_view(request, id):
+	try:
+		user_story = UserStory.objects.get(id=id)
+	except UserStory.DoesNotExist:
+		raise Http404('This user_story does not exist')
+	return render(request, 'regression/modal_detail_view.html', {
+	'user_story': user_story,
+	})

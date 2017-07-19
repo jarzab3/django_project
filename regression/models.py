@@ -11,3 +11,4 @@ class UserStory(models.Model):
 
 class EmailCategory(models.Model):
     key = models.CharField(max_length=200)
+

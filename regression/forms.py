@@ -10,7 +10,6 @@ from crispy_forms.bootstrap import (
 from regression.models import UserStory
 
 
-
 class UserStoryForm(forms.ModelForm):
     class Meta:
         model = UserStory
@@ -49,3 +48,7 @@ class UserStoryForm(forms.ModelForm):
                 Submit('submit', "Save"), css_class="col-md-6 col-md-offset-3"
                 )
             )
+#
+# class LoginForm(forms.Form):
+#    user = forms.CharField(max_length = 100)
+#    password = forms.CharField(widget = forms.PasswordInput())

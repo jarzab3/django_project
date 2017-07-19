@@ -73,6 +73,19 @@ def user_story_post_create(request):
                 instance = form.save(commit=False)
                 instance.save()
                 form = USForm()
+            #subject = form.cleaned_data['subject_f', '']
+            #case_title = form.cleaned_data['case_title_f', '']
+            #post = m.Post.objects.create(content=content,
+             #                            created_at=created_at)
+            logger.info('reguest.POST')
+            subject = request.POST.get('subject_f', '')
+            case_title = request.POST.get('case_title_f', '')
+
+            user_story_object = user_story(subject=subject, case_title=case_title)
+            user_story_object.save()
+            #return HttpResponseRedirect(reverse('post_detail',
+            #                                    kwargs={'post_id': post.id}))
+
 
                 messages.success(request, 'User story %s correctly saved' % instance.subject)
 
@@ -89,7 +102,6 @@ def user_story_post_create(request):
 
 def user_story_detail_view(request, id):
     return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
-
 
 def modal_detail_view(request, id):
 	try:

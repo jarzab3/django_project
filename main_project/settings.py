@@ -33,6 +33,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # Application definition
 
 INSTALLED_APPS = (
+    'django_pdb', #For Django after 1.7 version, it needs to be added BEFORE other apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,9 +42,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'crispy_forms',
     'regression',
-    'ajax_search',
-    'django_pdb',
-    'djangobower',
+    # 'ajax_search',
+    # 'djangobower',
 )
 
 BOWER_INSTALLED_APPS = (

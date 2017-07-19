@@ -1,9 +1,9 @@
-
 .main-wrapper{
 
 	 display:block;
 	 overflow:auto;
 	 background-color: #f2ede1;
+	min-height: 800px;
 }
 
 .basic {
@@ -19,4 +19,9 @@
 	text-transform: center !important;
 	color: #0f0e0f;
     padding: 10px;
+}
+
+.warning{
+	text-align: center;
+	color: red;
 }

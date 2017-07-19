@@ -8,13 +8,12 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from regression.serializers import UserStorySerializer
+# from regression.serializers import UserStorySerializer
 from regression.forms import UserStoryForm as USForm
 
 from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
-
 
 def main(request):
     return render(request, 'regression/index.html', {

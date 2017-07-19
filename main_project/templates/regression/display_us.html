@@ -4,60 +4,76 @@
 
 {% load crispy_forms_tags %}
 
-
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/forms.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{#    <link rel="stylesheet" href="{% static 'css/common.css' %}">#}
     <script type="text/javascript" src='{% static 'js/jquery.js' %}'></script>
     <script type="text/javascript" src='{% static 'js/modal_display.js' %}'></script>
 
-    <div class="main-wrapper">
+    <section class="main-wrapper">
 
         <h1 class='basic'>
-
             Display available user stories!
         </h1>
 
-            <div class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"></h4>
-                        </div>
-                        <div class="modal-body">
+        <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
-        {% for item in data %}
 
-            <div class="col-md-4" >
+        {% if data %}
 
-                <div>
-                    <button style="width: 350px; padding: 25px; margin: 25px;" class="btn btn-primary btn-lg pop" pageTitle="{{ item.subject }}" pageName="modal_detail_view/{{ item.id }}"> {{ item.subject }} </button>
+            {% for item in data %}
+
+                <div class="col-md-4">
+
+                    <div>
+                        <button style="width: 350px; padding: 25px; margin: 25px;" class="btn btn-primary btn-lg pop"
+                                pageTitle="{{ item.subject }}"
+                                pageName="modal_detail_view/{{ item.id }}"> {{ item.subject }} </button>
+
+                    </div>
 
                 </div>
+            {% endfor %}
 
-            </div>
-        {% endfor %}
+        {% else %}
+
+            <section class="warning">
+                There are no users story created yet, please add some and come back to this page!
+            </section>
+
+
+        {% endif %}
+
+
 
         <script>
-        $(function() {
-            $(".pop").click(function(){
-                var pageTitle = $(this).attr('pageTitle');
-                var pageName = $(this).attr('pageName');
-                $(".modal .modal-title").html(pageTitle);
-                $(".modal .modal-body").html("Content loading please wait...");
-                $(".modal").modal("show");
-                $(".modal .modal-body").load(pageName);
+            $(function () {
+                $(".pop").click(function () {
+                    var pageTitle = $(this).attr('pageTitle');
+                    var pageName = $(this).attr('pageName');
+                    $(".modal .modal-title").html(pageTitle);
+                    $(".modal .modal-body").html("Content loading please wait...");
+                    $(".modal").modal("show");
+                    $(".modal .modal-body").load(pageName);
+                });
             });
-        });
-    </script>
+        </script>
 
     </div>
 

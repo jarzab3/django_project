@@ -42,8 +42,8 @@ INSTALLED_APPS = (
     'rest_framework',
     'crispy_forms',
     'regression',
-    'ajax_search',
-    'django_pdb',
+    # 'ajax_search',
+    # 'django_pdb',
 )
 
 MIDDLEWARE_CLASSES = (

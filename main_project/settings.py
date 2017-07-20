@@ -15,7 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -28,7 +27,6 @@ DEBUG = True
 ALLOWED_HOSTS =[]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
 
 # Application definition
 
@@ -120,99 +118,64 @@ STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project/', 'static/'),)
 #STATIC_ROOT= os.path.join(BASE_DIR,'main_project/', 'static/')
 
 
-#log_path= ( os.path.join(BASE_DIR, 'main_project', 'logs', 'django_debug.log'),)
-#formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s\r')
+LOG_DIRS= os.path.join(BASE_DIR, 'main_project/', 'logs/')
 
 
-LOGGING = {
-   'version': 1,
-   'disable_existing_loggers': False,
-   'formatters': {
-      'django': { 
-         'format':'django: %(message)s',
-       },
-    },
-
-   'handlers': {
-      'logging.handlers.SysLogHandler': {
-         'level': 'DEBUG',
-         'class': 'logging.StreamHandler',
-
-         'formatter': 'django',
-
-       },
-   },
-
-   'loggers': {
-      'loggly_logs':{
-         'handlers': ['logging.handlers.SysLogHandler'],
-         'propagate': True,
-         'format':'django: %(message)s',
-         'level': 'DEBUG',
-       },
-    }
-}
-
-
-
-'''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
     'handlers': {
-        'null': {
-            'level':'DEBUG',
-            'class':'django.utils.log.NullHandler',
-        },
-        'console':{
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        # I always add this handler to facilitate separating loggings
-        'log_file':{
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(VAR_ROOT, 'logs/django.log'),
-            'maxBytes': '16777216', # 16megabytes
-            'formatter': 'verbose'
-        },
         'mail_admins': {
             'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler',
-            'include_html': True,
-        }
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'null': {
+            'level':'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'logfile': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_DIRS, 'debug.log'),
+            'maxBytes': 1024*1024*25, # 25MB
+            'backupCount': 0,
+            'formatter': 'verbose',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s|%(asctime)s|%(module)s|%(process)d|%(thread)d|%(message)s',
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s|%(message)s'
+        },
     },
     'loggers': {
-        'django.request': {
+        'regression.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
         },
-        'apps': { # I keep all my of apps under 'apps' folder, but you can also add them one by one, and this depends on how your virtualenv/paths are set
-            'handlers': ['log_file'],
-            'level': 'INFO',
+        'regression.tasks': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
             'propagate': True,
         },
-    },
-    # you can also shortcut 'loggers' and just configure logging for EVERYTHING at once
-    'root': {
-        'handlers': ['console', 'mail_admins'],
-        'level': 'INFO'
-    },
+        'regression.management': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'regression.models': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    }
 }
-'''

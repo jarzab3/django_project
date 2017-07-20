@@ -1,5 +1,4 @@
 import logging
-
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response, reverse
 from django.contrib import messages
@@ -14,6 +13,7 @@ from regression.forms import UserStoryForm as USForm
 from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
+
 
 def main(request):
     return render(request, 'regression/index.html', {
@@ -38,13 +38,13 @@ def charts(request):
     return render(request, 'regression/charts.html', {
     })
 
-
 def display_us_subject(request):
     try:
         all_user_stories = UserStory.objects.all()
         data = all_user_stories
+        logger.debug('Fetch user stories and display to website successfully!')
     except Exception as error:
-        logger.info("Display user story error. %s", error)
+        logger.info("Error when display user story. %s", error)
 
     return render(request, 'regression/display_us.html', {
         'data': data
@@ -57,11 +57,11 @@ def user_story_post_create(request):
 
     Handle the form GET and POST
     """
-    form = USForm()
+    # form = USForm()
 
     if request.method == 'GET':
-        # handle the request of a form
-        # here you can manage and edit if you have the instance value.
+        # Handle the request of a form
+        # Here you can manage and edit if you have the instance value.
         form = USForm()
 
     if request.method == 'POST':
@@ -73,31 +73,17 @@ def user_story_post_create(request):
                 instance = form.save(commit=False)
                 instance.save()
                 form = USForm()
-            #subject = form.cleaned_data['subject_f', '']
-            #case_title = form.cleaned_data['case_title_f', '']
-            #post = m.Post.objects.create(content=content,
-             #                            created_at=created_at)
-            logger.info('reguest.POST')
-            subject = request.POST.get('subject_f', '')
-            case_title = request.POST.get('case_title_f', '')
-
-            user_story_object = user_story(subject=subject, case_title=case_title)
-            user_story_object.save()
-            #return HttpResponseRedirect(reverse('post_detail',
-            #                                    kwargs={'post_id': post.id}))
-
 
                 messages.success(request, 'User story %s correctly saved' % instance.subject)
 
             except Exception as error:
-                pass
                 error_message = 'Something happened during the save of the user story: %s' % error
                 messages.error(request, error_message)
+                pass
 
     return render(request, 'regression/us_post_form.html', {
     	"form": form, 
     	})
-
 
 
 def user_story_detail_view(request, id):

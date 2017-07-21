@@ -20,9 +20,10 @@ class UserStoryForm(forms.ModelForm):
             "extra_notes"
         ]
 
-    repro_steps = forms.CharField(widget=forms.Textarea)
-    test_preconditions = forms.CharField(widget=forms.Textarea)
-    extra_notes = forms.CharField(widget=forms.Textarea)
+    case_title = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}))
+    test_preconditions = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}), required=False)
+    repro_steps = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}))
+    extra_notes = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}), required=False)
 
     def __init__(self, *args, **kwargs):
         super(UserStoryForm, self).__init__(*args, **kwargs)
@@ -38,11 +39,11 @@ class UserStoryForm(forms.ModelForm):
                 Field('case_title'), css_class="col-md-6 col-md-offset-3"
             ),
             Div(
-                Field('repro_steps'), css_class="col-md-6 col-md-offset-3",
-                      # style="background: #FAFAFA; "
+                Field('test_preconditions'), css_class="col-md-6 col-md-offset-3"
             ),
             Div(
-                Field('test_preconditions'), css_class="col-md-6 col-md-offset-3"
+                Field('repro_steps'), css_class="col-md-6 col-md-offset-3",
+                      # style="background: #FAFAFA; "
             ),
             Div(
                 Field('extra_notes'), css_class="col-md-6 col-md-offset-3"

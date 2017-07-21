@@ -15,9 +15,16 @@ from regression.models import UserStory
 logger = logging.getLogger(__name__)
 
 
+# def main(request):
+#     return render(request, 'regression/index.html', {
+#     })
+
+from regression.forms import MessageForm
+
 def main(request):
-    return render(request, 'regression/index.html', {
-    })
+    # This view is missing all form handling logic for simplicity of the example
+    return render(request, 'regression/index.html', {'form': MessageForm()})
+
 
 
 def submitted(request):

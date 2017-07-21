@@ -14,11 +14,9 @@ from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
 
-
 def main(request):
     return render(request, 'regression/index.html', {
     })
-
 
 def submitted(request):
     return render(request, 'regression/submitted.html', {

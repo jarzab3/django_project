@@ -17,14 +17,11 @@ from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
 
-#!python
-# log/urls.py
-from django.conf.urls import url
-from . import views
+# #!python
+# # log/urls.py
+# from django.conf.urls import url
+# from . import views
 
-# @login_required(login_url="login/")
-# def home(request):
-#     return render(request, "regression/index.html")
 
 @login_required(login_url="login/")
 def home(request):
@@ -68,7 +65,7 @@ def user_story_post_create(request):
                 instance.save()
                 form = USForm()
 
-                messages.success(request, 'User story %s correctly saved' % instance.subject)
+                messages.success(request, 'User story successfully added')
 
             except Exception as error:
                 error_message = 'Something happened during the save of the user story: %s' % error

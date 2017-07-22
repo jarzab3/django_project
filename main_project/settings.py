@@ -24,20 +24,21 @@ SECRET_KEY = 'j8s(6fw61+cx_o=g!9a(vs!wbj0&f!7u_lw$(eap5d4li@!b4('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =[]
+ALLOWED_HOSTS = []
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Application definition
 
 INSTALLED_APPS = (
-    'django_pdb', #For Django after 1.7 version, it needs to be added BEFORE other apps
+    'django_pdb',  # For Django after 1.7 version, it needs to be added BEFORE other apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'session_security',
     'crispy_forms',
     'regression',
     # 'ajax_search',
@@ -57,10 +58,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'django_pdb.middleware.PdbMiddleware'
+    'django_pdb.middleware.PdbMiddleware',
+    'session_security.middleware.SessionSecurityMiddleware'
 )
-
-ROOT_URLCONF = 'main_project.urls'
 
 TEMPLATES = [
     {
@@ -73,13 +73,26 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django.core.context_processors.request'
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'main_project.wsgi.application'
 
+####################<<<-----------------> Security <----------------->>>####################
+
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# SESSION_SECURITY_EXPIRE_AFTER = 2
+# SESSION_SECURITY_WARN_AFTER = 1
+# SESSION_SECURITY_INSECURE = True
+
+
+####################<<<-----------------> End - Security <----------------->>>####################
+
+
+WSGI_APPLICATION = 'main_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -104,7 +117,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -116,14 +128,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATIC_URL = '/static/'
+ROOT_URLCONF = 'main_project.urls'
+
+# STATIC_ROOT = ( os.path.join(BASE_DIR, 'main_project', 'static'),)
 
 
-#STATIC_ROOT = ( os.path.join(BASE_DIR, 'main_project', 'static'),)
-
-#STATIC_ROOT= os.path.join(BASE_DIR,'main_project/', 'static/')
-
-##########<<<----------------->>>##########
+####################<<<-----------------> Login Authentication <----------------->>>####################
 # Add this to tell Django where to redirect after
 # successful login
 
@@ -146,10 +156,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-##########<<<----------------->>>##########
+####################<<<-----------------> End - Login Authentication <----------------->>>####################
 
 
-LOG_DIRS= os.path.join(BASE_DIR, 'main_project/', 'logs/')
+LOG_DIRS = os.path.join(BASE_DIR, 'main_project/', 'logs/')
 
 LOGGING = {
     'version': 1,
@@ -160,19 +170,19 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'null': {
-            'level':'DEBUG',
+            'level': 'DEBUG',
             'class': 'logging.NullHandler',
         },
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         },
         'logfile': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(LOG_DIRS, 'debug.log'),
-            'maxBytes': 1024*1024*25, # 25MB
+            'maxBytes': 1024 * 1024 * 25,  # 25MB
             'backupCount': 0,
             'formatter': 'verbose',
         },
@@ -180,7 +190,7 @@ LOGGING = {
     'formatters': {
         'verbose': {
             'format': '%(levelname)s|%(asctime)s|%(module)s|%(process)d|%(thread)d|%(message)s',
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
+            'datefmt': "%d/%b/%Y %H:%M:%S"
         },
         'simple': {
             'format': '%(levelname)s|%(message)s'

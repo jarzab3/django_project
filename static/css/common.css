@@ -1,8 +1,12 @@
+body, html {
+  height: 100%;
+}
 
 .basic {
-	margin-top: 15px;
+	padding-top: 15px;
 	font-size: 20px;
-    height: 800px;
-    color: #000AAA;
+    color: #aa881e;
     text-align: center;
+    /*height:100vh;*/
+    height: -webkit-calc(100vh - 100px);
 }

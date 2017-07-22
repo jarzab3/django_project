@@ -2,7 +2,7 @@
 {% load staticfiles crispy_forms_tags %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/tables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
 
     {% include 'common/form_messages.html' %}
 
@@ -39,7 +39,6 @@
 
         </div>
 
-
         <div style="text-align: center; font-size: 12px; margin-top: 2cm;">
 
             <div class="forms-container">
@@ -53,7 +52,6 @@
                 <form method="POST" action="">{% csrf_token %}
                     {% crispy form %}
                 </form>
-
 
             </div>
 

@@ -1,26 +1,8 @@
-.main-wrapper {
-    display: block;
-    overflow: auto;
-    background-color: #f2ede1;
-    min-height: 800px;
-}
-
 .basic {
-    font-size: 30px;
-    color: #0000FF;
+	margin-top: 30px;
+	font-size: 30px;
+    height: 100%;
+    color: #0000AA;
+    display:table;
     text-align: center;
-}
-
-.forms-container {
-    margin-top: 3.5cm;
-    font-size: 16px;
-    text-align: center !important;
-    text-transform: center !important;
-    color: #0f0e0f;
-    padding: 10px;
-}
-
-.warning {
-    text-align: center;
-    color: red;
 }

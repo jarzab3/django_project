@@ -92,24 +92,3 @@ def modal_detail_view(request, id):
 def user_story_detail_view(request, id):
     return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
 
-
-
-# def login_user(request):
-#     logout(request)
-#     username = password = ''
-#     if request.POST:
-#         username = request.POST['username']
-#         password = request.POST['password']
-#
-#         user = authenticate(username=username, password=password)
-#         if user is not None:
-#             if user.is_active:
-#                 login(request, user)
-#                 return HttpResponseRedirect('/main/')
-#
-#     # return render_to_response('regression/login.html', context_instance=RequestContext(request))
-#
-#     return render(request, 'login.html', {
-#         # 'data': "logged"
-#     })
-

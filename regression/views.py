@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, render_to_response, reverse
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+# from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -14,27 +17,47 @@ from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
 
-def main(request):
-    return render(request, 'regression/index.html', {
-    })
+#!python
+# log/urls.py
+from django.conf.urls import url
+from . import views
 
-def submitted(request):
-    return render(request, 'regression/submitted.html', {
-    })
+# @login_required(login_url="login/")
+# def home(request):
+#     return render(request, "regression/index.html")
+
+@login_required(login_url="login/")
+def home(request):
+    return render(request, "index.html")
 
 
-def forms(request):
-    return render(request, 'regression/forms.html', {
-    })
+# def login(request):
+#     return render(request, 'regression/login.html', {
+#     })
+#
+# def main(request):
+#     return render(request, 'regression/index.html', {
+#     })
 
 
-def tables(request):
-    return render(request, 'regression/tables.html', {
-    })
 
-def charts(request):
-    return render(request, 'regression/charts.html', {
-    })
+
+# def submitted(request):
+#     return render(request, 'regression/submitted.html', {
+#     })
+#
+# def forms(request):
+#     return render(request, 'regression/forms.html', {
+#     })
+
+#
+# def tables(request):
+#     return render(request, 'regression/tables.html', {
+#     })
+#
+# def charts(request):
+#     return render(request, 'regression/charts.html', {
+#     })
 
 def display_us_subject(request):
     try:
@@ -44,7 +67,7 @@ def display_us_subject(request):
     except Exception as error:
         logger.info("Error when display user story. %s", error)
 
-    return render(request, 'regression/display_us.html', {
+    return render(request, 'display_us.html', {
         'data': data
     })
 
@@ -79,7 +102,7 @@ def user_story_post_create(request):
                 messages.error(request, error_message)
                 pass
 
-    return render(request, 'regression/us_post_form.html', {
+    return render(request, 'us_post_form.html', {
     	"form": form, 
     	})
 
@@ -92,6 +115,28 @@ def modal_detail_view(request, id):
 		user_story = UserStory.objects.get(id=id)
 	except UserStory.DoesNotExist:
 		raise Http404('This user_story does not exist')
-	return render(request, 'regression/modal_detail_view.html', {
+	return render(request, 'modal_detail_view.html', {
 	'user_story': user_story,
 	})
+
+
+def login_user(request):
+    logout(request)
+    username = password = ''
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/main/')
+
+    # return render_to_response('regression/login.html', context_instance=RequestContext(request))
+
+    return render(request, 'login.html', {
+        # 'data': "logged"
+    })
+#
+#

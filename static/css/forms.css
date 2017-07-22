@@ -1,8 +1,8 @@
-
 .basic {
 	margin-top: 30px;
 	font-size: 30px;
-    height: 800px;
+    height: 100%;
     color: #0000AA;
+    display:table;
     text-align: center;
 }

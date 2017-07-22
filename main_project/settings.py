@@ -65,7 +65,7 @@ ROOT_URLCONF = 'main_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['main_project/templates'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +77,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 WSGI_APPLICATION = 'main_project.wsgi.application'
 
@@ -91,7 +90,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -112,14 +110,46 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project/', 'static/'),)
+# STATICFILES_DIRS= ( os.path.join(BASE_DIR, 'main_project/', '../static/'),)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+STATIC_URL = '/static/'
+
+
 #STATIC_ROOT = ( os.path.join(BASE_DIR, 'main_project', 'static'),)
 
 #STATIC_ROOT= os.path.join(BASE_DIR,'main_project/', 'static/')
 
+##########<<<----------------->>>##########
+# Add this to tell Django where to redirect after
+# successful login
+
+LOGIN_REDIRECT_URL = '/'
+
+ROOT_URLCONF = 'main_project.urls'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+##########<<<----------------->>>##########
+
 
 LOG_DIRS= os.path.join(BASE_DIR, 'main_project/', 'logs/')
-
 
 LOGGING = {
     'version': 1,

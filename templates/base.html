@@ -160,7 +160,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="/logout""><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
@@ -170,12 +170,12 @@
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                {% if request.get_full_path == "/main" %}
+                {% if request.get_full_path == "/home" %}
                     <li class="active">
                         {% else %}
                     <li>
                 {% endif %}
-                <a href="main"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
 
                 {% if request.get_full_path == "/create" %}
@@ -195,14 +195,14 @@
                 </li>
 
                 <li>
-                    <a href="main"><i class="fa fa-fw fa-bar-chart-o"></i>Unavailable</a>
+                    <a href="home"><i class="fa fa-fw fa-bar-chart-o"></i>Unavailable</a>
                 </li>
 
                 <li>
-                    <a href="main"><i class="fa fa-fw fa-desktop"></i>Unavailable</a>
+                    <a href="home"><i class="fa fa-fw fa-desktop"></i>Unavailable</a>
                 </li>
                 <li>
-                    <a href="main"><i class="fa fa-fw fa-wrench"></i>Unavailable</a>
+                    <a href="home"><i class="fa fa-fw fa-wrench"></i>Unavailable</a>
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i
@@ -217,10 +217,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="main"><i class="fa fa-fw fa-file"></i>Unavailable</a>
+                    <a href="home"><i class="fa fa-fw fa-file"></i>Unavailable</a>
                 </li>
                 <li>
-                    <a href="main"><i class="fa fa-fw fa-dashboard"></i>Unavailable</a>
+                    <a href="home"><i class="fa fa-fw fa-dashboard"></i>Unavailable</a>
                 </li>
             </ul>
         </div>

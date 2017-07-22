@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import render
 from django.http import Http404
+from django.contrib.auth.forms import AuthenticationForm
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div, Row
@@ -8,6 +9,7 @@ from crispy_forms.bootstrap import (
     PrependedText, PrependedAppendedText, FormActions, AppendedText)
 
 from regression.models import UserStory
+
 
 class UserStoryForm(forms.ModelForm):
     class Meta:
@@ -54,7 +56,11 @@ class UserStoryForm(forms.ModelForm):
             )
         )
 
-#
-# class LoginForm(forms.Form):
-#    user = forms.CharField(max_length = 100)
-#    password = forms.CharField(widget = forms.PasswordInput())
+
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label="Username", max_length=30,
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'name': 'username'}))
+    password = forms.CharField(label="Password", max_length=30,
+                               widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password'}))
+

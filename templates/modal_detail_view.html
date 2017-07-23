@@ -6,7 +6,7 @@
 <body>
 {% block content %}
 
-    <p> {{ user_story.repro_steps }}</p>
+    <p> {{ user_story.repro_steps|linebreaks}}</p>
 
 {% endblock %}
 

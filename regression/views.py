@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, render_to_response, reverse
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+# from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -14,28 +17,17 @@ from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
 
-def main(request):
-    return render(request, 'regression/index.html', {
-    })
-
-def submitted(request):
-    return render(request, 'regression/submitted.html', {
-    })
+# #!python
+# # log/urls.py
+# from django.conf.urls import url
+# from . import views
 
 
-def forms(request):
-    return render(request, 'regression/forms.html', {
-    })
+@login_required(login_url="login/")
+def home(request):
+    return render(request, "index.html")
 
-
-def tables(request):
-    return render(request, 'regression/tables.html', {
-    })
-
-def charts(request):
-    return render(request, 'regression/charts.html', {
-    })
-
+@login_required(login_url="login/")
 def display_us_subject(request):
     try:
         all_user_stories = UserStory.objects.all()
@@ -44,12 +36,13 @@ def display_us_subject(request):
     except Exception as error:
         logger.info("Error when display user story. %s", error)
 
-    return render(request, 'regression/display_us.html', {
+    return render(request, 'display_us.html', {
         'data': data
     })
 
 
 @csrf_exempt
+@login_required(login_url="login/")
 def user_story_post_create(request):
     """Create a new user story
 
@@ -72,26 +65,27 @@ def user_story_post_create(request):
                 instance.save()
                 form = USForm()
 
-                messages.success(request, 'User story %s correctly saved' % instance.subject)
+                messages.success(request, 'User story successfully added')
 
             except Exception as error:
                 error_message = 'Something happened during the save of the user story: %s' % error
                 messages.error(request, error_message)
                 pass
 
-    return render(request, 'regression/us_post_form.html', {
+    return render(request, 'us_post_form.html', {
     	"form": form, 
     	})
-
-
-def user_story_detail_view(request, id):
-    return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
 
 def modal_detail_view(request, id):
 	try:
 		user_story = UserStory.objects.get(id=id)
 	except UserStory.DoesNotExist:
 		raise Http404('This user_story does not exist')
-	return render(request, 'regression/modal_detail_view.html', {
+	return render(request, 'modal_detail_view.html', {
 	'user_story': user_story,
 	})
+
+
+def user_story_detail_view(request, id):
+    return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
+

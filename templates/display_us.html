@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms-old.css' %}">
 {#    <link rel="stylesheet" href="{% static 'css/common.css' %}">#}
     <script type="text/javascript" src='{% static 'js/jquery.js' %}'></script>
     <script type="text/javascript" src='{% static 'js/modal_display.js' %}'></script>
@@ -39,16 +39,16 @@
 
             {% for item in data %}
 
-                <div class="col-md-4">
+                <div class="col-6 col-md-4">
 
                     <div>
-                        <button style="width: 350px; padding: 25px; margin: 25px;" class="btn btn-primary btn-lg pop"
+                        <button style="width: 250px; padding: 15px; margin: 12px; font-size: 13px; white-space: normal;" class="btn btn-primary btn-md pop"
                                 pageTitle="{{ item.subject }}"
-                                pageName="modal_detail_view/{{ item.id }}"> {{ item.subject }} </button>
+                                pageName="modal_detail_view/{{ item.id }}"> {{ item.case_title }} </button>
 
                     </div>
-
                 </div>
+
             {% endfor %}
 
         {% else %}
@@ -57,10 +57,7 @@
                 There are no users story created yet, please add some and come back to this page!
             </section>
 
-
         {% endif %}
-
-
 
         <script>
             $(function () {

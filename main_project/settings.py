@@ -80,6 +80,9 @@ TEMPLATES = [
     },
 ]
 
+####################<<<-----------------> Messages <----------------->>>####################
+
+
 from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {
@@ -91,7 +94,7 @@ MESSAGE_TAGS = {
 }
 
 
-####################<<<-----------------> Security <----------------->>>####################
+####################<<<-----------------> End - Messages <----------------->>>####################
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True

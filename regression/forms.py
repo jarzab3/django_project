@@ -27,6 +27,7 @@ class CategoryForm(forms.ModelForm):
             "description"
         ]
 
+    name = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 15}))
     description = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}), required=False)
 
     def __init__(self, *args, **kwargs):

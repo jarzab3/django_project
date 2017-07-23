@@ -1,0 +1,52 @@
+[23/Jul/2017 13:10:51] INFO [regression.views:105] user adam
+[23/Jul/2017 13:10:51] INFO [regression.views:106] this is an error message!!
+[23/Jul/2017 13:10:51] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:10:51] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:10:51] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:18:59] INFO [regression.views:105] user adam
+[23/Jul/2017 13:18:59] INFO [regression.views:106] this is an error message!!
+[23/Jul/2017 13:18:59] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:18:59] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:18:59] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:20:01] INFO [regression.views:105] user adam
+[23/Jul/2017 13:20:01] INFO [regression.views:106] this is an error message!!
+[23/Jul/2017 13:20:01] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:20:01] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:20:01] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:20:21] INFO [regression.views:105] user adam
+[23/Jul/2017 13:20:21] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:20:21] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:20:21] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:20:49] INFO [regression.views:105] user adam
+[23/Jul/2017 13:20:49] DEBUG [regression.views:106] this is debug
+[23/Jul/2017 13:41:45] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:49:35] INFO [regression.views:108] user adam
+[23/Jul/2017 13:50:08] INFO [regression.views:108] user adam
+[23/Jul/2017 13:50:12] INFO [regression.views:108] user adam
+[23/Jul/2017 13:50:51] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:53:11] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:53:17] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:02] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:17] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:23] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:38] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:20] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:21] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:46] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:47] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:47] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:48] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:51] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:56:46] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:56:51] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:57:23] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:05:17] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:10:55] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:26] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:26] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:46] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:51] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:12:34] DEBUG [regression.views:66] user adam
+[23/Jul/2017 14:12:34] INFO [regression.views:67] this is an error message!!
+[23/Jul/2017 14:12:41] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:13:00] DEBUG [regression.views:36] Fetch user stories and display to website successfully!

@@ -1,27 +1,26 @@
-.main-wrapper{
-
-	 display:block;
-	 overflow:auto;
-	 background-color: #f2ede1;
-	min-height: 800px;
+.main-wrapper {
+    display: block;
+    overflow: auto;
+    background-color: rgba(0, 242, 201, 0.36);
+    min-height: 800px;
 }
 
 .basic {
-	font-size: 30px;
+    font-size: 30px;
     color: #0000FF;
     text-align: center;
 }
 
-.forms-container{
-	margin-top: 3.5cm;
-	font-size: 16px;
-	text-align: center !important;
-	text-transform: center !important;
-	color: #0f0e0f;
+.forms-container {
+    margin-top: 3.5cm;
+    font-size: 16px;
+    text-align: center !important;
+    text-transform: center !important;
+    color: #0f0e0f;
     padding: 10px;
 }
 
-.warning{
-	text-align: center;
-	color: red;
+.warning {
+    text-align: center;
+    color: red;
 }

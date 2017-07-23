@@ -5,6 +5,7 @@ This project aims to create django project for regression testing.
 issues:
 
 1) Missing table:
+(django.db.utils.OperationalError: no such table: e.g. 'regression_category')
 python manage.py migrate --run-syncdb
 
 =======

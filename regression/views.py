@@ -12,24 +12,21 @@ from rest_framework.decorators import api_view
 
 # from regression.serializers import UserStorySerializer
 from regression.forms import UserStoryForm as USForm
+from regression.forms import CategoryForm as CatForm
 
 from regression.models import UserStory
 
 logger = logging.getLogger(__name__)
 
-# #!python
-# # log/urls.py
-# from django.conf.urls import url
-# from . import views
-
-
 @login_required(login_url="login/")
 def home(request):
     return render(request, "index.html")
 
+
 @login_required(login_url="login/")
 def manage(request):
     return render(request, "manage.html")
+
 
 @login_required(login_url="login/")
 def display_us_subject(request):
@@ -49,10 +46,8 @@ def display_us_subject(request):
 @login_required(login_url="login/")
 def user_story_post_create(request):
     """Create a new user story
-
     Handle the form GET and POST
     """
-    # form = USForm()
 
     if request.method == 'GET':
         # Handle the request of a form
@@ -67,6 +62,10 @@ def user_story_post_create(request):
             try:
                 instance = form.save(commit=False)
                 instance.created_by = request.user
+
+                logger.debug("user %s" % request.user)
+                logger.info("this is an error message!!")
+
                 instance.save()
 
                 form = USForm()
@@ -78,24 +77,26 @@ def user_story_post_create(request):
                 messages.error(request, error_message)
                 pass
 
-    return render(request, 'us_post_form.html', {
-    	"form": form, 
-    	})
+    return render(request, 'add_user_story.html', {
+        "form": form,
+    })
 
+
+@csrf_exempt
+@login_required(login_url="login/")
 def category_post_create(request):
-    """Create a new ucategory
-
+    """Create a new category
     Handle the form GET and POST
     """
 
     if request.method == 'GET':
         # Handle the request of a form
         # Here you can manage and edit if you have the instance value.
-        form = USForm()
+        form = CatForm()
 
     if request.method == 'POST':
         # Handle the data sent by the form
-        form = USForm(request.POST)
+        form = CatForm(request.POST)
 
         if form.is_valid():
             try:
@@ -103,30 +104,32 @@ def category_post_create(request):
                 instance.created_by = request.user
                 instance.save()
 
-                form = USForm()
+                logger.info("user %s" % request.user)
 
-                messages.success(request, 'User story successfully added')
+
+                form = CatForm()
+
+                messages.success(request, 'New category successfully added')
 
             except Exception as error:
-                error_message = 'Something happened during the save of the user story: %s' % error
+                error_message = 'Something happened during the save of the category: %s' % error
                 messages.error(request, error_message)
                 pass
 
-    return render(request, 'us_post_form.html', {
-    	"form": form,
-    	})
+    return render(request, 'add_category.html', {
+        "form": form,
+    })
 
 
 def modal_detail_view(request, id):
-	try:
-		user_story = UserStory.objects.get(id=id)
-	except UserStory.DoesNotExist:
-		raise Http404('This user_story does not exist')
-	return render(request, 'modal_detail_view.html', {
-	'user_story': user_story,
-	})
+    try:
+        user_story = UserStory.objects.get(id=id)
+    except UserStory.DoesNotExist:
+        raise Http404('This user_story does not exist')
+    return render(request, 'modal_detail_view.html', {
+        'user_story': user_story,
+    })
 
 
 def user_story_detail_view(request, id):
     return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
-

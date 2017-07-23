@@ -10,3 +10,11 @@ SUBJECT_CHOICES = (
     ("", "")
 
 )
+
+DOMAIN_CHOICES = (
+    ("Default", "Please Select"),
+    ("Front-End", "Front-End"),
+    ("Back-End", "Back-End"),
+    ("Front/Back-End", "Front/Back-End"),
+    ("", "")
+)

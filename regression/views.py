@@ -28,6 +28,10 @@ def home(request):
     return render(request, "index.html")
 
 @login_required(login_url="login/")
+def manage(request):
+    return render(request, "manage.html")
+
+@login_required(login_url="login/")
 def display_us_subject(request):
     try:
         all_user_stories = UserStory.objects.all()
@@ -62,7 +66,9 @@ def user_story_post_create(request):
         if form.is_valid():
             try:
                 instance = form.save(commit=False)
+                instance.created_by = request.user
                 instance.save()
+
                 form = USForm()
 
                 messages.success(request, 'User story successfully added')
@@ -75,6 +81,41 @@ def user_story_post_create(request):
     return render(request, 'us_post_form.html', {
     	"form": form, 
     	})
+
+def category_post_create(request):
+    """Create a new ucategory
+
+    Handle the form GET and POST
+    """
+
+    if request.method == 'GET':
+        # Handle the request of a form
+        # Here you can manage and edit if you have the instance value.
+        form = USForm()
+
+    if request.method == 'POST':
+        # Handle the data sent by the form
+        form = USForm(request.POST)
+
+        if form.is_valid():
+            try:
+                instance = form.save(commit=False)
+                instance.created_by = request.user
+                instance.save()
+
+                form = USForm()
+
+                messages.success(request, 'User story successfully added')
+
+            except Exception as error:
+                error_message = 'Something happened during the save of the user story: %s' % error
+                messages.error(request, error_message)
+                pass
+
+    return render(request, 'us_post_form.html', {
+    	"form": form,
+    	})
+
 
 def modal_detail_view(request, id):
 	try:

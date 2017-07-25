@@ -21,7 +21,8 @@ class Category(models.Model):
 
 
 class UserStory(models.Model):
-    category = models.ManyToManyField(Category)
+    # category = models.ManyToManyField(choices=Category)
+    category = models.ForeignKey(Category)
     subject = models.CharField(choices=SUBJECT_CHOICES, default="Default", max_length=100)
     domain = models.CharField(choices=DOMAIN_CHOICES, default="Default", max_length=100)
     case_title = models.CharField(max_length=200)

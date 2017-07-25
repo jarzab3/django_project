@@ -124,7 +124,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Australia/Melbourne'
 
 USE_I18N = True
 
@@ -174,6 +174,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ####################<<<-----------------> End - Login Authentication <----------------->>>####################
 
 
+
+####################<<<-----------------> Logging <----------------->>>####################
+
+
 LOG_DIRS = os.path.join(BASE_DIR, 'main_project/', 'logs/')
 
 LOGGING = {
@@ -221,3 +225,6 @@ LOGGING = {
         },
     }
 }
+
+
+####################<<<-----------------> End - Logging <----------------->>>####################

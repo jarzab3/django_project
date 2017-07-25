@@ -15,6 +15,7 @@ from regression.forms import UserStoryForm as USForm
 from regression.forms import CategoryForm as CatForm
 
 from regression.models import UserStory
+from regression.models import Category
 
 logger = logging.getLogger(__name__)
 
@@ -33,16 +34,32 @@ def display_us_subject(request):
     try:
         all_user_stories = UserStory.objects.all()
         data = all_user_stories
-        logger.debug('Fetch user stories and display to website successfully!')
+        data.is_us = True
+        logger.info("Displayed all us stories")
     except Exception as error:
         logger.info("Error when display user story. %s", error)
 
-    return render(request, 'display_us.html', {
+    return render(request, 'display_us_cat.html', {
         'data': data
     })
 
 
-@csrf_exempt
+@login_required(login_url="login/")
+def display_category_subject(request):
+    try:
+        all_categories = Category.objects.all()
+        data = all_categories
+        data.is_category = True
+        logger.info("Displayed all categories")
+    except Exception as error:
+        logger.info("Error when display categories. %s", error)
+
+    return render(request, 'display_us_cat.html', {
+        'data': data
+    })
+
+
+
 @login_required(login_url="login/")
 def user_story_post_create(request):
     """Create a new user story
@@ -64,7 +81,17 @@ def user_story_post_create(request):
                 instance.created_by = request.user
 
                 logger.debug("user %s" % request.user)
-                logger.info("this is an error message!!")
+
+                instance.case_title = form['case_title'].value().capitalize()
+
+                instance.repro_steps = form['repro_steps'].value().capitalize()
+
+                # form['repro_steps'].value().capitalize()
+                # form['test_preconditions'].value().capitalize()
+                # form['extra_notes'].value().capitalize()
+
+                # logger.info("Values from request: %s " % cap_case_title)
+                # logger.info("Values 222 from request: %s" % form.data['repro_steps'])
 
                 instance.save()
 
@@ -133,3 +160,20 @@ def modal_detail_view(request, id):
 
 def user_story_detail_view(request, id):
     return HttpResponse('<p> In item_detail view with pk {0}</p>'.format(id))
+
+
+@login_required(login_url="login/")
+def view_backlog(request):
+    try:
+        all_categories = Category.objects.all()
+        data = all_categories
+        data.is_category = True
+        # logger.info("")
+
+    except Exception as error:
+        logger.info("Error while attempt to display backlog. %s", error)
+
+    return render(request, 'view_backlog.html', {
+        'data': data
+    })
+

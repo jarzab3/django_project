@@ -85,11 +85,11 @@ class UserStoryForm(forms.ModelForm):
                 Field('case_title'), css_class="col-md-6 col-md-offset-3"
             ),
             Div(
-                Field('test_preconditions'), css_class="col-md-6 col-md-offset-3"
-            ),
-            Div(
                 Field('repro_steps'), css_class="col-md-6 col-md-offset-3",
                 # style="background: #FAFAFA; "
+            ),
+            Div(
+                Field('test_preconditions'), css_class="col-md-6 col-md-offset-3"
             ),
             Div(
                 Field('extra_notes'), css_class="col-md-6 col-md-offset-3"

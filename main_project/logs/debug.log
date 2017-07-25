@@ -1,0 +1,195 @@
+[23/Jul/2017 13:10:51] INFO [regression.views:105] user adam
+[23/Jul/2017 13:10:51] INFO [regression.views:106] this is an error message!!
+[23/Jul/2017 13:10:51] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:10:51] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:10:51] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:18:59] INFO [regression.views:105] user adam
+[23/Jul/2017 13:18:59] INFO [regression.views:106] this is an error message!!
+[23/Jul/2017 13:18:59] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:18:59] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:18:59] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:20:01] INFO [regression.views:105] user adam
+[23/Jul/2017 13:20:01] INFO [regression.views:106] this is an error message!!
+[23/Jul/2017 13:20:01] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:20:01] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:20:01] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:20:21] INFO [regression.views:105] user adam
+[23/Jul/2017 13:20:21] DEBUG [regression.views:107] this is debug
+[23/Jul/2017 13:20:21] WARNING [regression.views:108] this is warning
+[23/Jul/2017 13:20:21] ERROR [regression.views:109] this is error
+[23/Jul/2017 13:20:49] INFO [regression.views:105] user adam
+[23/Jul/2017 13:20:49] DEBUG [regression.views:106] this is debug
+[23/Jul/2017 13:41:45] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:49:35] INFO [regression.views:108] user adam
+[23/Jul/2017 13:50:08] INFO [regression.views:108] user adam
+[23/Jul/2017 13:50:12] INFO [regression.views:108] user adam
+[23/Jul/2017 13:50:51] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:53:11] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:53:17] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:02] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:17] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:23] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:54:38] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:20] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:21] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:46] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:47] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:47] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:48] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:55:51] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:56:46] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:56:51] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 13:57:23] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:05:17] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:10:55] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:26] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:26] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:46] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:11:51] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:12:34] DEBUG [regression.views:66] user adam
+[23/Jul/2017 14:12:34] INFO [regression.views:67] this is an error message!!
+[23/Jul/2017 14:12:41] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[23/Jul/2017 14:13:00] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[24/Jul/2017 00:22:17] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[24/Jul/2017 00:22:30] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[24/Jul/2017 10:28:52] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[24/Jul/2017 10:28:52] INFO [regression.views:37] Display all us stories
+[24/Jul/2017 10:29:47] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[24/Jul/2017 10:29:47] INFO [regression.views:37] Displayed all us stories
+[24/Jul/2017 10:31:54] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[24/Jul/2017 10:31:54] INFO [regression.views:37] Displayed all us stories
+[24/Jul/2017 10:32:01] DEBUG [regression.views:36] Fetch user stories and display to website successfully!
+[24/Jul/2017 10:32:01] INFO [regression.views:37] Displayed all us stories
+[24/Jul/2017 13:38:04] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[24/Jul/2017 13:38:04] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 13:39:05] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[24/Jul/2017 13:39:05] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 13:39:06] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[24/Jul/2017 13:39:06] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 13:39:13] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[24/Jul/2017 13:39:13] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:18:22] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[24/Jul/2017 15:18:22] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:19:49] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[24/Jul/2017 15:19:49] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:23:10] DEBUG [regression.views:37] Fetch user stories and display to website successfully!
+[24/Jul/2017 15:23:10] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:23:28] INFO [regression.views:52] Displayed all categories
+[24/Jul/2017 15:28:10] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:28:24] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:28:36] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:29:20] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:29:38] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:29:46] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:30:26] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:30:34] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:30:35] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:30:58] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:31:20] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:31:25] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:33:07] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:38:05] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:38:43] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:38:57] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:39:23] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:39:24] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:39:32] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:39:48] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:40:03] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:40:03] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:40:04] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:40:04] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:40:09] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:48:17] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:48:31] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:48:33] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:48:36] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:49:31] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:50:27] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:50:42] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:50:47] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:50:48] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:50:57] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:51:07] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:51:19] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:54:09] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:54:16] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:54:51] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:54:52] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:55:00] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:55:17] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:55:17] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:55:50] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:55:57] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:56:50] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 15:56:53] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 15:57:00] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 20:30:11] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 20:30:13] INFO [regression.views:53] Displayed all categories
+[24/Jul/2017 20:30:37] INFO [regression.views:124] user adam
+[24/Jul/2017 20:30:51] INFO [regression.views:124] user adam
+[24/Jul/2017 20:53:32] DEBUG [regression.views:83] user adam
+[24/Jul/2017 22:32:30] DEBUG [regression.views:83] user adam
+[24/Jul/2017 22:32:30] DEBUG [regression.views:84] Data <WSGIRequest: POST '/add_story'>
+[24/Jul/2017 22:35:31] DEBUG [regression.views:83] user adam
+[24/Jul/2017 22:37:07] DEBUG [regression.views:83] user adam
+[24/Jul/2017 22:39:24] DEBUG [regression.views:83] user adam
+[24/Jul/2017 22:42:00] DEBUG [regression.views:83] user adam
+[24/Jul/2017 22:42:00] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:05:49] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:05:49] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:06:10] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:06:10] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:06:26] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:06:26] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:07:09] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:07:09] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:07:24] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:07:24] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:07:39] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:07:39] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:07:39] INFO [regression.views:90] Values from request: Can navigate to Create an account page via link 
+[24/Jul/2017 23:08:12] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:08:12] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:08:12] INFO [regression.views:90] Values from request: fake 
+[24/Jul/2017 23:08:12] INFO [regression.views:91] Values 222 from request: fake
+[24/Jul/2017 23:09:37] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:09:37] DEBUG [regression.views:84] Data <class 'regression.forms.UserStoryForm'>
+[24/Jul/2017 23:09:37] INFO [regression.views:92] Values from request: Geelfp 
+[24/Jul/2017 23:09:37] INFO [regression.views:93] Values 222 from request: repro
+[24/Jul/2017 23:15:37] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:17:54] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:17:59] INFO [regression.views:38] Displayed all us stories
+[24/Jul/2017 23:20:36] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:21:40] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:21:52] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:23:19] DEBUG [regression.views:83] user adam
+[24/Jul/2017 23:23:22] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:00:51] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:02:16] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:03:26] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:04:36] DEBUG [regression.views:83] user adam
+[25/Jul/2017 11:04:39] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:05:44] DEBUG [regression.views:83] user adam
+[25/Jul/2017 11:05:47] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:07:08] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:08:41] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:09:00] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:10:08] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:10:11] INFO [regression.views:53] Displayed all categories
+[25/Jul/2017 11:22:55] INFO [regression.views:171] Displayed all categories
+[25/Jul/2017 11:27:49] INFO [regression.views:53] Displayed all categories
+[25/Jul/2017 11:27:53] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:30:08] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:41:30] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:41:42] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:41:47] INFO [regression.views:53] Displayed all categories
+[25/Jul/2017 11:43:59] INFO [regression.views:53] Displayed all categories
+[25/Jul/2017 11:44:30] INFO [regression.views:53] Displayed all categories
+[25/Jul/2017 11:44:38] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:45:44] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:45:45] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:46:13] INFO [regression.views:38] Displayed all us stories
+[25/Jul/2017 11:46:17] INFO [regression.views:53] Displayed all categories
+[25/Jul/2017 11:52:07] INFO [regression.views:53] Displayed all categories
+[25/Jul/2017 11:55:46] INFO [regression.views:38] Displayed all us stories

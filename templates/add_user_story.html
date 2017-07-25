@@ -2,14 +2,17 @@
 {% load staticfiles crispy_forms_tags %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+
+    <div class="page-header">
+        <h1 class="text-center">Add new user story</h1>
+    </div>
 
     <div id="msg">
         {% include 'common/form_messages.html' %}
     </div>
 
     <div class="basic">
-        Forms practice
 
 
         {#        <div class="container">#}
@@ -41,7 +44,7 @@
         {##}
         {#        </div>#}
 
-        <div style="text-align: center; font-size: 12px; margin-top: 2cm;">
+        <div style="text-align: center; font-size: 12px;">
 
             {#            <div class="forms-container">#}
             {#                <div class="bs-example">#}
@@ -59,7 +62,6 @@
 
     </div>
 
-    </div>
 {% endblock %}
 
 {% block javascript %}
@@ -67,8 +69,21 @@
     <script>
         setTimeout(function () {
             $('#msg').fadeOut('slow');
-        }, 4000);
+        }, 5000);
 
     </script>
 
 {% endblock %}
+
+
+
+
+
+
+
+<div class="page-header">
+    <h1 class="text-center">Add new user story
+        {#            <small>Subtext for header</small>#}
+    </h1>
+</div>
+

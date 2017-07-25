@@ -1,0 +1,54 @@
+
+body, html {
+    height: 100%;
+}
+
+.basic {
+    padding-top: 15px;
+    font-size: 20px;
+    color: rgba(16, 30, 24, 0.93);
+    text-align: center;
+    /*height:100vh;*/
+    height: -webkit-calc(100vh - 100px);
+}
+
+.basic-login-page {
+    /*background-image: url("images/back_image.png");*/
+    background: #ECE9E6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #FFFFFF, #ECE9E6); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.main-wrapper {
+    display: block;
+    overflow: auto;
+    background-color: rgba(0, 242, 201, 0.36);
+    min-height: 800px;
+}
+
+.main-wrapper-view-backlog {
+    display: block;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0);
+    min-height: 800px;
+
+}
+
+.forms-container {
+    margin-top: 3.5cm;
+    font-size: 16px;
+    text-align: center !important;
+    text-transform: center !important;
+    color: #0f0e0f;
+    padding: 10px;
+}
+
+.warning {
+    text-align: center;
+    color: red;
+}

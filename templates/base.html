@@ -11,11 +11,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="django dashboard service">
+    <meta name="author" content="Adam Jarzebak">
+    <title>Dashboard</title>
 
-    <title>SB Admin - Bootstrap Admin Template</title>
-
+{#    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">#}
+{#    <link rel="icon" href="favicon.ico" type="image/x-icon">#}
 
     <!-- Bootstrap Core CSS 
     <link rel="stylesheet" href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css'>
@@ -191,7 +192,7 @@
                         {% else %}
                     <li>
                 {% endif %}
-                <a href="create"><i class="fa fa-fw fa-table"></i>Add new user story</a>
+                <a href="manage"><i class="fa fa-fw fa-table"></i>Manage</a>
                 </li>
 
                 {% if request.get_full_path == "/display_us" %}
@@ -199,7 +200,7 @@
                         {% else %}
                     <li>
                 {% endif %}
-                <a href="display_us"><i class="fa fa-fw fa-edit"></i> Display user stories</a>
+                <a href="view_backlog"><i class="fa fa-fw fa-edit"></i> View backlog</a>
                 </li>
 
                 <li>

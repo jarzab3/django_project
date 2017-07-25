@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load staticfiles %}
+
+
+{% block content %}
+
+    {#<link rel="stylesheet" href="{% static 'css/common.css' %}" >#}
+
+    <div class='basic'>
+    <div class="jumbotron">
+        <h1 class="text-center">Manage your backlog</h1>
+        {#  <p>...</p>#}
+        {#  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>#}
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                {#      <img src="..." alt="...">#}
+                <div class="caption">
+                    <h3 class="text-center">Add new user story</h3>
+                    <p class="text-center"><a href="/add_story" class="btn btn-primary" role="button" style="min-width: 80px;">Add</a> <a
+                            href="/view_us" class="btn btn-primary" role="button" style="min-width: 80px;">View all</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                {#      <img src="..." alt="...">#}
+                <div class="caption">
+                    <h3 class="text-center">Add new category</h3>
+<p class="text-center"><a href="/add_category" class="btn btn-primary" role="button" style="min-width: 80px;">Add</a> <a
+                            href="/view_categories" class="btn btn-primary" role="button" style="min-width: 80px;">View all</a></p>                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                {#      <img src="..." alt="...">#}
+                <div class="caption">
+                    <h3 class="text-center">Edit</h3>
+                    <p class="text-center"><a href="#" class="btn btn-primary" role="button">Here</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+{% endblock %}
+

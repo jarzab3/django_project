@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'css/common.css' %}">#}
+    <script type="text/javascript" src='{% static 'js/jquery.js' %}'></script>
+    <script type="text/javascript" src='{% static 'js/modal_display.js' %}'></script>
+
+    <div class="page-header">
+        <h1 class="text-center">View backlog</h1>
+    </div>
+
+
+    <section class="main-wrapper-view-backlog">
+
+    Here is going to data tables displayed
+
+
+    </section>
+
+
+{% endblock %}

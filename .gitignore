@@ -4,5 +4,5 @@ db.sqlite3
 bower_components
 .idea/
 venvdir/
-
-
+node_modules/
+main_project/logs/

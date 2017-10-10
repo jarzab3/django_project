@@ -30,5 +30,14 @@ Installation instructions:
 2) Activate virtualenv 'workon <project's name>'
 3) Run 'pip install -r requirements.txt'
 
+=======
+React
 
+Installation:
+Please follow up this tutorial:
+https://medium.com/@urangurang/react-on-django-boilerplate-3c3735df41f2
 
+Issues:
+
+In webpack.config.js change to:
+loader: 'babel-loader'

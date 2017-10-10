@@ -1,4 +1,8 @@
 Django==1.10.5 #This is core of this project
 django-crispy-forms==1.6.1 #Crispy forms are used for user input on the website 
 ipdb==0.10.1 #This package is used for debugging
-sphinx==1.5.1 #This package is used for documentation of this project
+#sphinx==1.5.1 #This package is used for documentation of this project
+django-pdb==0.6.1
+django-rest-framework==0.1.0
+django-session-security==2.5.1
+djangorestframework==3.7.0

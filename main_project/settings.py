@@ -41,8 +41,7 @@ INSTALLED_APPS = (
     'session_security',
     'crispy_forms',
     'regression',
-    # 'ajax_search',
-    # 'djangobower',
+    'webpack_loader',
 )
 
 BOWER_INSTALLED_APPS = (
@@ -61,6 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django_pdb.middleware.PdbMiddleware',
     'session_security.middleware.SessionSecurityMiddleware'
 )
+# os.path.join(BASE_DIR, 'templates'),
 
 TEMPLATES = [
     {
@@ -78,6 +78,17 @@ TEMPLATES = [
         },
     },
 ]
+
+
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
+
+
 
 ####################<<<-----------------> Messages <----------------->>>####################
 
@@ -141,7 +152,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'assets'),
 ]
+
 
 ROOT_URLCONF = 'main_project.urls'
 
